@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css\search.css">
+    <link rel="stylesheet" href="css\carousel.css">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/carousel/">
+    
+    <title>ATN SHOP</title>
+</head>
+
+<body>
+
+<!---header--->
+{{> header}}
+
+<!---end header-->
+
+<!---slider --->
+{{> carousel}}
+
+
+<!----end slider ---->
+
+<!---- main content ---->
+
+<div class="container  justify-content-center mb-50 ">
+    <div class="row">
+        {{#each products}}
+      
+        <div class="col-md-4 mt-2">
+          <form action="/addtocart?id={{_id}}" method="POST" >
+            <div class="card">
+                <div class="card-body">
+                    <div class="card-img-actions"> <img src="{{picURL}}" class="card-img img-fluid" style="width:100%;height:350px;" > </div>
+                </div>
+                <div class="card-body bg-light text-center">
+                    <div class="mb-2">
+                        <h6 class="font-weight-semibold mb-2"> <a href="/productInfo?id={{_id}}" class="text-default mb-2" data-abc="true">{{name}}</a> </h6> 
+                        <a href="#" class="text-muted" data-abc="true">{{type}}</a>
+                    </div>
+                    <h3 class="mb-0 font-weight-semibold">{{price}} VND</h3>
+                    
+                    <button type="submit" class="btn bg-cart" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa fa-cart-plus mr-2"></i> Add to cart</button>
+                </div>
+            </div>
+        
+        </form>
+        </div>
+        {{else}}
+        <h1>Không tìm thấy sản phẩm</h1>
+        {{/each}}
+
+        
+    </div>
+</div>
+
+<!--- end main content --->
+
+
+<!----footer---->
+
+
+{{> footer}}
+
+
+<!---end footer--->
+
+<!-----scrop up button--->
+<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+
+<!----modal------>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Thông báo</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Sản phẩm đã được thêm vào giỏ hàng thành công. 
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" href="/cart">Giỏ hàng</button>
+        <button type="button" class="btn btn-primary">Mua tiếp</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-------end scrop up button---->
+ <script src="js\bootstrap.bundle.min.js"></script>
+<script src="js\index.js"></script>
+</body>
+</html>
+

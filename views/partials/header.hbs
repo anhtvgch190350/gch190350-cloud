@@ -1,0 +1,51 @@
+<header>
+  <nav class="navbar navbar-expand-md fixed-top ">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">ATN</a>
+      
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+          <li class="nav-item">
+            <a class="nav-link"  href="/"></i>Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/cart"><i class="fa fa-shopping-cart"></i>Cart</a>
+          </li>
+          {{!-- <li class="nav-item">
+            <a class="nav-link" href="/about">About Us</a>
+          </li> --}}
+      
+          <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Sort
+          </a>
+          <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarDarkDropdownMenuLink">
+            <li><a class="dropdown-item" href="/productbylego">Lego</a></li>
+            <li><a class="dropdown-item" href="/productbyBroadgame">Board game</a></li>
+            <li><a class="dropdown-item" href="/productbyHero">Siêu nhân</a></li>
+            <li><a class="dropdown-item" href="/productbyMohinh">Mô hình</a></li>
+            <li><a class="dropdown-item" href="/productbyLaprap">Lắp ráp</a></li>
+            <li><a class="dropdown-item" href="/productbyDieukhien">Điều khiển</a></li>
+            <li><a class="dropdown-item" href="/productbylowprice">Giá tăng dần</a></li> 
+            <li><a class="dropdown-item" href="/productbyhighprice">Giá giảm dần</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+            {{#if nameA}}
+            <h1>Hello {{nameA}}</h1>
+            {{else}}
+            <a class="nav-link" href="/login">Login</a>
+            {{/if}}
+          </li>
+        </ul>
+        <form action="/search", method="POST" class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="txtSearch" id="txtSearch">
+          <button class="btn btn-outline-light" type="submit">Search</button>
+        </form>
+
+        
+      </div>
+    </div>
+  </nav>
+</header>

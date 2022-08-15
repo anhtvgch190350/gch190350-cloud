@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" >
+    <title>Edit Product</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700">
+    <link rel="stylesheet" href="css\fontawesome.min.css" >
+    <link rel="stylesheet" href="css\jquery-ui.min.css" type="text/css" >
+    
+    <link rel="stylesheet" href="css\bootstrap.min.css" >
+    <link rel="stylesheet" href="css\templatemo-style.css">
+    
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-xl">
+      <div class="container h-100">
+        <a class="navbar-brand" href="/product">
+          <h1 class="tm-site-title mb-0">Product Admin</h1>
+        </a>
+  
+      </div>
+    </nav>
+    <div class="container tm-mt-big tm-mb-big">
+      <div class="row">
+        <div class="col-xl-9 col-lg-10 col-md-12 col-sm-12 mx-auto">
+          <div class="tm-bg-primary-dark tm-block tm-block-h-auto">
+            <div class="row">
+              <div class="col-12">
+                <h2 class="tm-block-title d-inline-block">Sửa thông tin sản phẩm</h2>
+              </div>
+            </div>
+            <div class="row tm-edit-product-row">
+              <div class="col-xl-6 col-lg-6 col-md-12">
+                <form action="/edit" method="post" class="tm-edit-product-form">
+                <div class="form-group mb-3">
+                <input type="hidden" name="txtId" value="{{product._id}}">
+                </div>
+                  <div class="form-group mb-3">
+                    <label for="name">Tên sản phẩm</label>
+                    <input name="txtName" id="txtName" type="text" value="{{product.name}}" class="form-control">
+                  </div>
+
+                   <div class="form-group mb-3">
+                    <label for="name">Thể loại</label>
+                    <input name="txtType" id="txtType" type="text" value="{{product.type}}" class="form-control">
+                  </div>
+
+                  <div class="form-group mb-3">
+                    <label for="name">Giá</label>
+                    <input name="txtPrice" id="txtPrice" type="text" value="{{product.price}}" class="form-control">
+                    <span style="color: red;">{{error}}</span> 
+                  </div>
+
+                  <div class="form-group mb-3">
+                    <label for="name">URL ảnh</label>
+                    <input name="txtPicURL" id="txtPicURL" type="text" value="{{product.picURL}}" class="form-control">
+                  </div>
+
+                  <div class="form-group mb-3">
+                    <label for="type">Decription:</label>
+                    <input id="txtDecription" name="txtDecription" type="text" class="form-control validate" value="{{product.Decription}}">
+                  </div>
+              </div>
+              <div class="col-xl-6 col-lg-6 col-md-12 mx-auto mb-4">
+                <div class="tm-product-img-edit mx-auto">
+                  <img src="{{product.picURL}}" alt="Product image" class="img-fluid d-block mx-auto">
+                </div>
+              </div>
+              <div class="col-12">
+                <button type="submit" value="Update" class="btn btn-primary btn-block text-uppercase">Update Now</button>
+              </div>
+            </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+   
+
+    <script src="js\jquery-3.3.1.min.js"></script>
+    <script src="js\jquery-ui.min.js"></script>
+    <script src="js\bootstrap.min.js"></script>
+    
+   
+  </body>
+</html>

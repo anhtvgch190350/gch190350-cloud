@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" >
+    <title>Admin Page</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700">
+    <link rel="stylesheet" href="css\fontawesome.min.css" >
+    <link rel="stylesheet" href="css\bootstrap2.min.css" >
+    <link rel="stylesheet" href="css\templatemo-style.css">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+
+  <body id="reportsPage">
+    <nav class="navbar navbar-expand-xl">
+      <div class="container h-100">
+        <a class="navbar-brand" href="/">
+          <h1 class="tm-site-title mb-0">Index</h1>
+        </a>
+        <a class="navbar-brand" href="/product">
+          <h1 class="tm-site-title mb-0">Product Admin</h1>
+        </a>  
+      
+        <a class="navbar-brand" href="/guessmanage">
+          <h1 class="tm-site-title mb-0">GuessManage</h1>
+        </a>
+        </div>
+    </nav>
+    
+    <div class="container">
+      <div class="row ">
+        <div class="col-sm-12 col-md-12 ">
+          <div class="tm-bg-primary-dark ">
+            <a href="/addnew" class="btn btn-primary btn-block text-uppercase mb-3">Add new product</a>
+            <a href="/productbylowprice" class="btn btn-primary btn-block text-uppercase mb-3">productbylowprice</a>
+            <a href="/productbyhighprice" class="btn btn-primary btn-block text-uppercase mb-3">productbyhighprice</a>
+              <table class="table text-center ">
+                <thead>
+                  <tr>
+                    
+                    <th scope="col">Tên sản phẩm</th>
+                    <th scope="col">Ảnh</th>
+                    <th scope="col">Loại sản phẩm</th>
+                    <th scope="col">Giá</th>
+                    <th scope="col">&nbsp;</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    {{#each products}}
+                  <tr>
+                    
+                    <td class="tm-product-name"><a href="/edit?id={{_id}}" style="color:white">{{name}}</a></td>
+                    <td>
+                      {{#if picURL}}
+                              <img src="{{picURL}}" class="card-img img-fluid" style="width:30%;height:30%" ></td>
+                            {{else}}
+                            <p>Khong co anh</h>
+                      {{/if}}
+                    <td scope="col">{{type}}</td>
+                    <td>{{price}}</td>
+                    <td>
+                      <a onclick="return confirm('Bạn có chắc chắn muốn xóa sản phẩm {{name}} không ?')" href="/delete?id={{_id}}" class="tm-product-delete-link">
+                        <i class="fa fa-trash" style="color:white"></i>
+                      </a>
+                    </td>
+                  </tr>
+                    {{/each}}
+                </tbody>
+              </table>
+            
+            
+           
+          </div>
+        </div>
+        
+      </div>
+    </div>
+
+
+    <script src="js\jquery-3.3.1.min.js"></script>
+    <!-- https://jquery.com/download/ -->
+    <script src="js\bootstrap.min.js"></script>
+    <!-- https://getbootstrap.com/ -->
+    
+  </body>
+</html>
